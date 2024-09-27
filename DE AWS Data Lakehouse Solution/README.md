@@ -96,8 +96,3 @@ This solution allows STEDI to:
 - Provide data scientists with reliable, structured data for building machine learning models.
   
 The data lakehouse architecture supports STEDI’s goal of making data-driven decisions, enhancing product offerings, and delivering a superior customer experience.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
