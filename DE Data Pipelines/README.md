@@ -16,7 +16,7 @@ The source data resides in S3 and needs to be processed in Sparkify's data wareh
 3-Copy the data from the home cloudshell directory to required bucket:
 
 ## AirFlowDAG
-![DAG](DE Data Pipelines/images/dag.jpg)
+![DAG](https://github.com/matantsour/Data-Engineering-Projects/blob/main/DE%20Data%20Pipelines/images/dag.jpg)
 
 ##Execution
 1. Create S3 Bucket and Copy data from source.
