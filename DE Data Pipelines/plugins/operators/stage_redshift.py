@@ -54,7 +54,7 @@ class StageToRedshiftOperator(BaseOperator):
         files = [f"s3://{self.s3_bucket}/{obj['Key']}" for obj in response['Contents']]
 
         # For testing purposes- reduce the amount of files to 10000
-        files = files[:1000]
+        # files = files[:1000]
         if not files:
             raise FileNotFoundError(f"No files found matching prefix {self.s3_key}")
 
