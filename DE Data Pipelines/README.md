@@ -142,3 +142,8 @@ If the table is empty (COUNT(***) = 0), the operator raises a ValueError, failin
 ## Thank you
 
 This project is part of my learning path as a Data Engineer as part of Udacity Data Engineer with AWS course. 
+
+
+
+## Project Rubric
+![RUBRIC](https://github.com/matantsour/Data-Engineering-Projects/blob/main/DE%20Data%20Pipelines/images/rubric.jpg)
