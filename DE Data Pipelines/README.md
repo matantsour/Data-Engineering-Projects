@@ -10,6 +10,10 @@ The source data resides in S3 and needs to be processed in Sparkify's data wareh
 
 ## Steps:
 
+## Data Source
+Log data: s3://udacity-dend/log_data
+Song data: s3://udacity-dend/song_data
+
 ### Copy S3 Data
 1-Create S3 bucket
 2-Copy the data from the udacity bucket to the home cloudshell directory:
@@ -17,6 +21,17 @@ The source data resides in S3 and needs to be processed in Sparkify's data wareh
 
 ## AirFlowDAG
 ![DAG](https://github.com/matantsour/Data-Engineering-Projects/blob/main/DE%20Data%20Pipelines/images/dag.jpg)
+
+
+##Project Structure
+dags/data_pipeline_project.py: Directed Acyclic Graph definition with imports, tasks and task dependencies
+plugins/helpers/sql_queries.py: Contains Insert SQL statements
+dags/common/create_tables.sql: Contains SQL Table creations statements
+plugins/operators/multi_sql_postgres.py: Operator that runs multiple sql statements to initialize the tables.
+plugins/operators/stage_redshift.py: Operator that copies data from S3 buckets into redshift staging tables
+plugins/operators/load_dimension.py: Operator that loads data from redshift staging tables into dimensional tables
+plugins/operators/load_fact.py: Operator that loads data from redshift staging tables into fact table
+plugins/operators/data_quality.py: Operator that validates data quality in redshift tables
 
 ##Execution
 1. Create S3 Bucket and Copy data from source.
@@ -112,7 +127,7 @@ Dimension loads typically follow the truncate-insert pattern, where the target t
 **using "helpers\sql_queries.py" file, I declared the insert statements to the various fact and dimension tables.**
 
 
-####Data Quality Operator
+#### Data Quality Operator
 The final operator I implemented is the Data Quality Operator, which performs checks on the data itself. The operator takes one or more SQL test cases along with the expected results, executing the tests against the data.
 
 For each test, the operator compares the actual result to the expected result. If there’s a mismatch, an exception is raised, causing the task to retry and eventually fail.
@@ -124,4 +139,6 @@ For each table in the tables list:
 It executes a SELECT COUNT(**) FROM table; query.
 If the table is empty (COUNT(***) = 0), the operator raises a ValueError, failing the task.
 
-##
+## Thank you
+
+This project is part of my learning path as a Data Engineer as part of Udacity Data Engineer with AWS course. 
